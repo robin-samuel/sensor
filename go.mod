@@ -1,4 +1,4 @@
-module sensor
+module github.com/robin-samuel/sensor
 
 go 1.21.4
 

@@ -59,13 +59,23 @@ type Event struct {
 }
 
 type Manager struct {
-	sim *Simulator
+	start time.Time
+	end   time.Time
+	sim   *Simulator
 }
 
 func NewManager(start time.Time, end time.Time, activity float64) *Manager {
 	return &Manager{
 		sim: NewSimulator(start.Add(-time.Second), end.Add(time.Second), activity),
 	}
+}
+
+func (s *Manager) Start() time.Time {
+	return s.start
+}
+
+func (s *Manager) End() time.Time {
+	return s.end
 }
 
 func (s *Manager) Get(st Type, t time.Time) Event {

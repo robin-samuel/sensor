@@ -1,10 +1,10 @@
 package main
 
 import (
-	"sensor"
 	"testing"
 	"time"
 
+	"github.com/robin-samuel/sensor"
 	"gonum.org/v1/plot"
 	"gonum.org/v1/plot/plotter"
 	"gonum.org/v1/plot/plotutil"
@@ -93,7 +93,7 @@ func TestSimulator(t *testing.T) {
 func TestSensor(t *testing.T) {
 	start := time.Now()
 	end := start.Add(10 * time.Second)
-	s := sensor.New(start, end, 0.3)
+	s := sensor.NewManager(start, end, 0.3)
 	var aEvents []sensor.Event
 	var gEvents []sensor.Event
 	var mEvents []sensor.Event

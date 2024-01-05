@@ -58,17 +58,17 @@ type Event struct {
 	Data []float64
 }
 
-type SensorManager struct {
+type Manager struct {
 	sim *Simulator
 }
 
-func New(start time.Time, end time.Time, activity float64) *SensorManager {
-	return &SensorManager{
+func NewManager(start time.Time, end time.Time, activity float64) *Manager {
+	return &Manager{
 		sim: NewSimulator(start.Add(-time.Second), end.Add(time.Second), activity),
 	}
 }
 
-func (s *SensorManager) Get(st Type, t time.Time) Event {
+func (s *Manager) Get(st Type, t time.Time) Event {
 	pos0 := s.sim.Position(t.Add(-time.Millisecond * 66))
 	pos1 := s.sim.Position(t)
 	ori0 := s.sim.Orientation(t.Add(-time.Millisecond * 66))

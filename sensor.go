@@ -78,6 +78,14 @@ func (s *Manager) End() time.Time {
 	return s.end
 }
 
+func (s *Manager) Orientation(t time.Time) Orientation {
+	return s.sim.Orientation(t)
+}
+
+func (s *Manager) Position(t time.Time) Position {
+	return s.sim.Position(t)
+}
+
 func (s *Manager) Get(st Type, t time.Time) Event {
 	pos0 := s.sim.Position(t.Add(-time.Millisecond * 66))
 	pos1 := s.sim.Position(t)

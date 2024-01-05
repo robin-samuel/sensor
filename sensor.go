@@ -66,7 +66,9 @@ type Manager struct {
 
 func NewManager(start time.Time, end time.Time, activity float64) *Manager {
 	return &Manager{
-		sim: NewSimulator(start.Add(-time.Second), end.Add(time.Second), activity),
+		start: start,
+		end:   end,
+		sim:   NewSimulator(start.Add(-time.Second), end.Add(time.Second), activity),
 	}
 }
 
